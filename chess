@@ -1,0 +1,27 @@
+import numpy.random as rand
+
+def random():
+    list = []
+    listhelp = [0,1,2,3,4,5,6,7]
+    for i in range(0,8):
+        mindex = rand.randint(0,len(listhelp))
+        list.append(listhelp[mindex])
+        listhelp.remove(listhelp[mindex])
+    return list
+
+def proverka(mas):
+    k = 1
+    for i in range(0,6):
+        for j in range(i + 1,7):
+            if (mas[i] + k == mas[j]) or (mas[i] - k == mas[j]):
+                return False
+            k = k + 1
+        k = 1
+    return True
+
+mas = [0] * 8
+while (proverka(mas) == False or mas[0] == 0 and mas[1] == 0):
+    mas = random()
+    print(mas)
+
+print(random())
