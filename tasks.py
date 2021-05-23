@@ -2,29 +2,22 @@ import math
 import numpy as np
 import numpy.random as rand
 
-def triangle(nums):
-    if(len(nums)<3):
-        return 0
-    last = 2
-    middle = 1
-    first = 0
-    num_last = len(nums)-1
-    num_middle = num_last-1
-    num_first = num_middle-1
-    sum=0
-    while first<=num_first:
-        if nums[last]+nums[first]+nums[middle] > sum:
-            if (nums[last]<nums[first]+nums[middle]) and (nums[first]<nums[last]+nums[middle]) and (nums[middle]<nums[last]+nums[first]):
-                sum = nums[last]+nums[first]+nums[middle]
-        if last<num_last:
-            last+=1
-        else:
-            if middle<num_middle:
-                middle+=1
-                last=middle+1
+def maxPerimeter(mas):
+    maxp = 0
+    n = len(mas)
+    for i in range(n - 2):
+        for j in range(i + 1, n - 1):
+            for k in range(j + 1, n):
+                a = mas[i]
+                b = mas[j]
+                c = mas[k]
+                if (a < b + c and b < a + c
+                    and c < a + b):
+                    maxp = max(maxp, a + b + c)
+            if (maxp == 0):
+                return "Создание треугольника невозможно"
             else:
-                first+=1
-    return sum
+                return "Максимальный периметр = " + str(maxp)
 
 def maxnum(nums):
     strums = []
@@ -51,7 +44,7 @@ def maxnum(nums):
         resstr=resstr+i
     return resstr 
 
-def bubble_sort(nums):
+def diagonal_sort(nums):
     # Устанавливаем swapped в True, чтобы цикл запустился хотя бы один раз
     swapped = True
     while swapped == True:
@@ -68,6 +61,12 @@ n = rand.randint(1, 100)
 m = rand.randint(1, 100)
 min_lim = 1
 max_lim = 100
-matrix = rand.randint(min_lim, max_lim, (n, m))                    
-print(triangle([2,3,2])
-print(maxnum([2,3,2,1,5])
+matrix = rand.randint(min_lim, max_lim, (n, m))
+
+k = rand.randint(1, 100)
+max_limm = 100
+matr = rand.randint(min_lim, max_limm, (k, m))
+
+print(maxPerimetr([[2],[3],[2]]))
+print(maxnum([2,3,2,1,5]))
+print(diagonal_sort(mart))
