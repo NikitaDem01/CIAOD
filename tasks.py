@@ -69,4 +69,4 @@ matr = rand.randint(min_lim, max_limm, (k, m))
 
 print(maxPerimetr([[2],[3],[2]]))
 print(maxnum([2,3,2,1,5]))
-print(diagonal_sort(mart))
+print(diagonal_sort(matr))
