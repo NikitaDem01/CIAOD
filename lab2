@@ -69,6 +69,30 @@ def InterpolationSearch(mas, val):
             high = index - 1;
     return -1
 
+def random():
+    list = []
+    listhelp = [0,1,2,3,4,5,6,7]
+    for i in range(0,8):
+        mindex = rand.randint(0,len(listhelp))
+        list.append(listhelp[mindex])
+        listhelp.remove(listhelp[mindex])
+    return list
+
+def proverka(mas):
+    k = 1
+    for i in range(0,6):
+        for j in range(i + 1,7):
+            if (mas[i] + k == mas[j]) or (mas[i] - k == mas[j]):
+                return False
+            k = k + 1
+        k = 1
+    return True
+
+maschess = [0] * 8
+while (proverka(maschess) == False or maschess[0] == 0 and maschess[1] == 0):
+    maschess = random()
+    print(maschess)
+    
 mas = [6, 17, 21, 27, 32, 35, 35, 36, 37, 48]
 x = ""
 
@@ -85,8 +109,3 @@ print("Интерполяционный поиск: " + str(InterpolationSearch(
 now = time.perf_counter()
 print("Время: " + str(now-loop_start))
 
-#while proverka(maschess) == False or (mas[0] == 0 and mas[1] == 0):
-#   mas = np.random.permutation(mas)
-#for i in range(7):
-#    x = x + str(maschess[i])
-#    print(x)
