@@ -1,3 +1,5 @@
+from itertools import *
+
 def arrows(bubbles):
     counter = 0
     while len(bubbles) > 0:
