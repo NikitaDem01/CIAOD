@@ -20,14 +20,14 @@ def maxPerimeter(mas):
                 return "Максимальный периметр = " + str(maxp)
 
 def maxnum(nums):
-    strums = []
+    mas = []
     for i in nums:
-        strums.append(str(i))
+        mas.append(str(i))
     result = []
-    startlen = len(strums)
+    startlen = len(mas)
     while len(result)<startlen:
         max='0'
-        for i in strums:
+        for i in mas:
             if len(i)<len(max):
                 if int(max)<int(i)*10**(len(max)-len(i)):
                     max=i
@@ -38,11 +38,11 @@ def maxnum(nums):
                 if int(i)>int(max):
                     max=i
         result.append(max)
-        strums.remove(max)
-    resstr=''
+        mas.remove(max)
+    retstr=''
     for i in result:
-        resstr=resstr+i
-    return resstr 
+        retstr=retstr+i
+    return retstr 
 
 def diagonal_sort(nums):
     # Устанавливаем swapped в True, чтобы цикл запустился хотя бы один раз
